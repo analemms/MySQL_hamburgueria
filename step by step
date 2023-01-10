@@ -1,0 +1,46 @@
+mysql> CREAT DATABASE Hamburgueria;
+Enter
+mysql> SHOW DATABASES;
+Enter
+mysql> USE HAMBURGUERIA;
+Enter
+mysql> CREATE TABLE produto (); 
+Enter
+mysql> CREATE TABLE produto (produtoid INT NOT NULL AUTO_INCREMENT, produtonome VARCHAR(100) NOT NULL, produtomarca VARCHAR(100) NOT NULL, produtotamanho VARCHAR(100) NOT NULL, produtoitensinclusos VARCHAR(100) NOT NULL, produtovalor DECIMAL (5,2) NOT NULL, PRIMARY KEY(produtoid));
+Enter
+mysql> show tables;
+Enter
+mysql> describe produto; // mostra toda a tabela
+Enter
+mysql> INSERT INTO produto (produtonome, produtomarca, produtotamanho, produtoitensinclusos, produtovalor) VALUES ('Combo 1', 'Vegan', 'Serve 2 pessoas', 'Porções de batata frita e refrigerante', 49.99);
+Enter
+mysql> INSERT INTO produto (produtonome, produtomarca, produtotamanho, produtoitensinclusos, produtovalor) VALUES ('Combo 2', 'Vegan', 'Serve 3 pessoas', 'Porções de batata frita, refrigerantes e bacon', 64.99); //Inserindo produto
+Enter
+mysql> INSERT INTO produto (produtonome, produtomarca, produtotamanho, produtoitensinclusos, produtovalor) VALUES ('Combo 3', 'Vegan', 'Serve 4 pessoas', 'Porções de batata frita, refrigerantes e bacon', 79.99);
+Enter
+mysql> INSERT INTO produto (produtonome, produtomarca, produtotamanho, produtoitensinclusos, produtovalor) VALUES ('Combo 3', 'Vegan', 'Serve 5 pessoas', 'Porções de batata frita, refrigerantes, bacon e salada', 99.99);
+Enter
+mysql> INSERT INTO produto (produtonome, produtomarca, produtotamanho, produtoitensinclusos, produtovalor) VALUES ('Combo 4', 'Vegan', 'Serve 5 pessoas', 'Porções de batata frita, refrigerantes, bacon, salada, sorvete de pistache', 129.99);
+mysql> SELECT * FROM produto; // mostra todos os registros da tabela produto e permite a busca de itens
+Enter
+mysql> SELECT produtoid FROM produto; //Selecione apenas a coluna produtoid da tabela produto
+Enter
+mysql> SELECT produtoid, produtonome FROM produto; // mostrando produtoid e produtonome
+Enter
+mysql> SELECT produtoid as id, produtonome nome FROM produto; //mostrando o itens e "criando um apelido" de identificação (se n usar o as, tbm funciona)
+Enter
+mysql> SELECT * FROM produto ORDER BY produtonome ASC;// ordene a busca pelo nome do produto de forma ascendente
+Enter
+mysql> SELECT * FROM produto ORDER BY produtonome DESC;//o contrário
+Enter
+mysql> SELECT * FROM produto ORDER BY RAND();// Ordenando randômicamente
+Enter 
+mysql> SELECT * FROM produto LIMIT 3; //busca de 3 linhas
+Enter
+mysql> SELECT * FROM produto ORDER BY produtonome ASC LIMIT 1;//combinando comandos
+
+mysql> SELECT * FROM produto WHERE produtoid = 5;//quando desejo apenas selecionar o produto 5
+Enter
+mysql> SELECT * FROM produto WHERE produtoid = 1 OR produtoid = 4; //selecionando mais de um
+Enter
+mysql> SELECT * FROM produto WHERE produtonome LIKE 'C%'; //busca de itens que iniciam por 'c', '%c' final, '%c%' n importa o local
