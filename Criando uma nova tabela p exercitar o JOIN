@@ -1,0 +1,24 @@
+mysql> CREATE TABLE itemincluso (iteminclusoid INT NOT NULL AUTO_INCREMENT, iteminclusonome VARCHAR (200) NOT NULL, PRIMARY KEY(iteminclusoid));// criando uma tabela apenas para item incluso
+mysql> ALTER TABLE itemincluso ADD produtoid int NOT NULL; // Adicionar um novo campo na tabela
+mysql> ALTER TABLE itemincluso ADD iteminclusoquantidade INT NOT NULL; //adicionando campo quantidade - prox passo, tirar da tabela item incluso e inserir na nova
+mysql> INSERT INTO itemincluso (iteminclusonome, produtoid, iteminclusoquantidade) VALUES ('Batata frita', 1, 2);
+mysql> SELECT * FROM itemincluso; //verificando
+mysql> INSERT INTO itemincluso (iteminclusonome, produtoid, iteminclusoquantidade) VALUES ('Refrigerante', 1, 2); //adicionando itens para o mesmo produto
+mysql> describe produto; //excluindo um campo de uma tabela
+mysql> ALTER TABLE produto DROP COLUMN produtoitensinclusos;
+mysql> describe produto;//verificando
+//próximo passo: fazer a conexão de produto com itemincluso (2 atributos com a mesma representação)
+mysql> SELECT * FROM produto JOIN itemincluso ON itemincluso.produtoid = produto.produtoid;
+mysql> SELECT * FROM produto LEFT JOIN itemincluso ON itemincluso.produtoid = produto.produtoid;
+//edição de um registro
+mysql> SELECT * FROM produto;
+mysql> UPDATE produto SET produtonome = 'Combo 4' WHERE produtoid = 4;//a descrição 4 estava em duplicidade
+mysql> SELECT * FROM produto; //conferindo
+mysql> UPDATE produto SET produtonome = 'Combo 5' WHERE produtoid = 5;
+mysql> SELECT * FROM produto; //conferindo
+//editando 2 campos
+mysql> UPDATE produto SET produtotamanho = 'Serve 6 pessoas', produtomarca = 'Vegan and Saladsalt' WHERE produtoid= 5;
+mysql> SELECT * FROM produto; //conferindo
+//deletando produtos
+mysql> DELETE FROM produto WHERE produtoid = 5; //posso usar comparadores, como >=
+mysql> SELECT * FROM produto;
